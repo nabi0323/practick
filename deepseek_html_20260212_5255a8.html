@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детский сад «Колокольчик» | г. Буйнакск</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fef9f4;
+            color: #2d3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #6ba6d9, #4a89c1);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Герой */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 450px;
+            position: relative;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+
+        .hero-overlay {
+            background: rgba(74, 137, 193, 0.85);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .hero-text {
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .hero-text h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #4a89c1;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background: #2d3e50;
+            color: white;
+        }
+
+        /* Секции */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #4a89c1;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #6ba6d9;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Карточки преимуществ */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(74, 137, 193, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2d3e50;
+        }
+
+        /* Информация */
+        .info-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-text p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .info-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Контакты */
+        .contacts {
+            background: #e8f0fa;
+            border-radius: 30px;
+            padding: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        .contact-icon {
+            font-size: 30px;
+        }
+
+        /* Подвал */
+        footer {
+            background: #2d3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .hero-text h2 {
+                font-size: 32px;
+            }
+
+            .info-block {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Детский сад «Колокольчик»</h1>
+                <p>г. Буйнакск, жилмассив Западный</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="employees.html">Сотрудники</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="hero-text">
+                <h2>Добро пожаловать!</h2>
+                <p>Муниципальное бюджетное дошкольное образовательное учреждение</p>
+                <a href="#contacts" class="btn">Связаться с нами</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают «Колокольчик»</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🏡</div>
+                    <h3>Уютная атмосфера</h3>
+                    <p>Тёплая, домашняя обстановка, современные игровые зоны и развивающие пособия.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👩‍🏫</div>
+                    <h3>Опытные педагоги</h3>
+                    <p>Высококвалифицированные специалисты с многолетним стажем работы.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍲</div>
+                    <h3>Пятиразовое питание</h3>
+                    <p>Сбалансированное, вкусное и полезное меню с учётом индивидуальных особенностей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="info-block">
+                <div class="info-text">
+                    <h2 style="color: #4a89c1; margin-bottom: 20px;">О нас</h2>
+                    <p>Детский сад «Колокольчик» открыт в 1992 году. Это современное образовательное учреждение в жилмассиве Западный города Буйнакск.</p>
+                    <p>У нас функционирует 5 групп: ясельная, младшая, средняя, старшая и подготовительная. Работают кружки: ИЗО-студия, ритмика, LEGO-конструирование, английский язык.</p>
+                    <p>Коллектив — 25 сотрудников, из них 12 педагогов. Мы создаём все условия для гармоничного развития детей.</p>
+                </div>
+                <div class="info-image">
+                    <img src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Детский сад Колокольчик">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section contacts">
+        <div class="container">
+            <h2 class="section-title" style="color: #2d3e50;">Контакты</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>Адрес:</strong><br>
+                        г. Буйнакск, жилмассив Западный, 3/1
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <strong>Телефон:</strong><br>
+                        +7 (87237) 5-12-34
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <strong>Email:</strong><br>
+                        kolokolchik.buynaksk@mail.ru
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕒</span>
+                    <div>
+                        <strong>Режим работы:</strong><br>
+                        Пн-Пт: 07:30 – 18:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Детский сад «Колокольчик», г. Буйнакск. Все права защищены.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Сайт разработан студентом-практикантом в рамках производственной практики, 2026 г.</p>
+        </div>
+    </footer>
+</body>
+</html>
